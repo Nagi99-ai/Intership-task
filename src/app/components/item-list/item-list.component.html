@@ -1,0 +1,28 @@
+<mat-card>
+    <!-- Search Field with Enhanced Styles -->
+      <mat-label>Search by Title</mat-label>
+      <input
+        matInput
+        [(ngModel)]="searchText"
+        (input)="filterItems()"
+        placeholder="Type to filter..."
+      />
+  
+    <!-- Sort Dropdown with Improved Layout -->
+        <div class="select">
+            <mat-label>Sort Order:</mat-label>
+            <select [(ngModel)]="sortOrder" (change)="sortItems()" class="standard-select">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+        </div>
+  
+    <!-- List Display -->
+    <mat-list>
+      <mat-list-item *ngFor="let item of filteredItems">
+        <h3 matLine>{{ item.title }}</h3>
+        <p matLine>{{ item.body }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  
